@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="./img/favicon.png" type="image/x-icon">
+    <link rel="stylesheet" href="layout.css">
+    <script src="script.js" defer></script>
+    <title>Ботанический Сад им. Гареева</title>
+</head>
+
+<body class="page">
+    <header class="header">
+        <div class="container">
+            <div class="header__content">
+                <div class="header__logo">
+                    <img class="header__logo-img" src="./img/logo-botanica.png" alt="Логотип Ботанического сада">
+                    <span class="header__logo-name">
+                        <span class="header__name-main">Ботанический сад</span>
+                        <span class="header__name-secondary">имени Э.З.Гареева НАН КР</span>
+                    </span>
+                </div>
+
+                <nav class="header__menu">
+                    <ul class="header__list">
+                        <li><a href="#hero">Главная</a></li>
+                        <li><a href="#mission">Возраждение</a></li>
+                        <li><a href="#map">Контакты</a></li>
+                    </ul>
+                </nav>
+
+                <div class="header__burger">
+                    <span></span><span></span><span></span>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <section id="hero" class="hero">
+            <div class="container">
+                <div class="hero__content">
+                    <h1 class="hero__title title">Ботанический сад</h1>
+                    <p class="hero__text">Сохраняя прошлое — создаем будущее. Проект возрождения главного зеленого
+                        оазиса Бишкека.</p>
+                    <div class="hero__actions">
+                        <a href="#mission" class="hero__btn-primary">Узнать о проекте</a>
+                        <a href="#about" class="hero__btn-secondary">О саде</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="mission" class="mission reveal">
+            <div class="container">
+                <div class="mission__grid">
+                    <div class="mission__content">
+                        <h2 class="section-title">Возраждение</h2>
+                        <p class="section-text">Мы работаем над тем, чтобы восстановить величие сада. Наша цель —
+                            создать пространство, где наука встречается с живой природой в самом сердце столицы.</p>
+                        <ul class="mission__list">
+                            <li>🌿 Реставрация уникальных оранжерей</li>
+                            <li>🧬 Создание цифровой базы растений</li>
+                            <li>🚶‍♂️ Удобные маршруты для прогулок</li>
+                        </ul>
+                    </div>
+                    <div class="mission__image">
+                        <img src="./img/тропинка.jpg" alt="Тропинка в саду">
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="about" class="future reveal">
+            <div class="container">
+                <div class="future__card">
+                    <img src="./img/plan.jpg" alt="План будущего">
+                    <div class="future__info">
+                        <h2 class="future__title">Взгляд в будущее</h2>
+                        <p>Концепция полной модернизации инфраструктуры до 2030 года.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="map" class="map reveal">
+            <div class="container">
+                <div class=" map__content">
+                    <iframe
+                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2925.308703130424!2d74.62663957662582!3d42.84523910433728!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x389eb64570081079%3A0x8686a34720e6e73c!2z0JHQvtGC0LDQvdC40YfQtdGB0LrQuNC5INGB0LDQtCDQuNC8LiDQreCXLtCT0LDRgNC10LXQstCwINCd0JDQnCDQmtCg!5e0!3m2!1sru!2skg!4v1700000000000!5m2!1sru!2skg"
+                        width="100%" height="450"
+                        style="border:0; border-radius: 15px; box-shadow: 0 10px 30px rgba(0,0,0,0.1);"
+                        allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade">
+                    </iframe>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer__content">
+                <p>&copy; 2025 Ботанический сад им. Э.З. Гареева</p>
+                <p>Разработка: <strong>T0kAdam</strong></p>
+            </div>
+        </div>
+    </footer>
+</body>
+
+</html>

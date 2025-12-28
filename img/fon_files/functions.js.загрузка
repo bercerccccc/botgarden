@@ -1,0 +1,132 @@
+function uniqueId() {
+	return (new Date).getTime()
+}
+
+
+function initajaxforms(selector,container,loadingblock) {
+	$("body").delegate(selector,"submit", function(e) {
+		e.preventDefault();
+		var ahref = $(this).attr("action");
+		var data = $(this).serialize();
+		history.pushState({}, document.title, ahref+"?"+data);
+		$(container).hide();
+		$(loadingblock).show();
+		loadPage(ahref,data,container,loadingblock);
+	});
+}
+
+
+function initajaxlinks(selector,container,loadingblock) {
+	$(window).on("popstate", function(e) {
+		if (e.originalEvent.state !== null) {
+			loadPage(location.href,container,loadingblock);
+		}
+	});
+	$("body").delegate(selector,"click", function(e) {
+		e.preventDefault();
+		var ahref = $(this).attr("href");
+		history.pushState({}, document.title, ahref);
+		$(container).hide();
+		$(loadingblock).show();
+		loadPage(ahref,"",container,loadingblock);
+	});
+}
+
+
+function loadPage(ahref,data,container,loadingblock) {
+	$.ajax({
+		method: "GET",
+		cache: false,
+		data: data,
+		url: ahref,
+		async: true,
+		beforeSend : function(jqXHR, settings) {
+			jqXHR.setRequestHeader("X-dcloadfullcleardesign","true");
+		}, success: function(datainfo, textStatus, jqXHR){
+			$(container).html(datainfo);
+		}, complete: function(jqXHR, textStatus){
+			$(loadingblock).hide();
+			$(container).show();
+		}, error: function(jqXHR, textStatus, errorThrown) {
+		}
+	});
+}
+
+
+function blockcontent() {
+	// Disable text select
+	function disableselect(e) { return false; }
+	function reEnable() { return true; }
+	document.onselectstart=new Function ("return false")
+	if (window.sidebar) { document.onmousedown=disableselect; document.onclick=reEnable; }
+	//Disable right mouse
+	var message="Function Disabled!";
+	function clickIE() {if (document.all) {alert(message);return false;}}
+	function clickNS(e) {if (document.layers||(document.getElementById&&!document.all)) { if (e.which==2||e.which==3) {alert(message);return false;}}}
+	if (document.layers) {document.captureEvents(Event.MOUSEDOWN);document.onmousedown=clickNS;}
+	else{document.onmouseup=clickNS;document.oncontextmenu=clickIE;}
+	document.oncontextmenu=new Function("return false")
+}
+
+
+function pngfix() {
+	/* Correctly handle PNG transparency in Win IE 5.5 & 6. http://homepage.ntlworld.com/bobosola. Updated 18-Jan-2006.
+	Use in <HEAD> with DEFER keyword wrapped in conditional comments:
+	<!--[if lt IE 7]> <script defer type="text/javascript" src="pngfix.js"></script> <![endif]--> */
+	var arVersion = navigator.appVersion.split("MSIE")
+	var version = parseFloat(arVersion[1])
+	if ((version >= 5.5) && (document.body.filters)) {
+		for (var i=0; i<document.images.length; i++) {
+			var img = document.images[i]
+			var imgName = img.src.toUpperCase()
+			if (imgName.substring(imgName.length-3, imgName.length) == "PNG") {
+				var imgID = (img.id) ? "id='" + img.id + "' " : ""
+				var imgClass = (img.className) ? "class='" + img.className + "' " : ""
+				var imgTitle = (img.title) ? "title='" + img.title + "' " : "title='" + img.alt + "' "
+				var imgStyle = "display:inline-block;" + img.style.cssText 
+				if (img.align == "left") imgStyle = "float:left;" + imgStyle
+				if (img.align == "right") imgStyle = "float:right;" + imgStyle
+				if (img.parentElement.href) imgStyle = "cursor:hand;" + imgStyle
+				var strNewHTML = "<span " + imgID + imgClass + imgTitle
+				+ " style=\"" + "width:" + img.width + "px; height:" + img.height + "px;" + imgStyle + ";"
+				+ "filter:progid:DXImageTransform.Microsoft.AlphaImageLoader"
+				+ "(src=\'" + img.src + "\', sizingMethod='scale');\"></span>" 
+				img.outerHTML = strNewHTML
+				i = i-1
+			}
+		}
+	}
+}
+
+
+// document.cookie = "userName=Vasya";
+function setCookie(name, value, options) {
+	options = options || {};
+	var expires = options.expires;
+	if (typeof expires == "number" && expires) {
+		var d = new Date();
+		d.setTime(d.getTime() + expires*1000);
+		expires = options.expires = d;
+	}
+	if (expires && expires.toUTCString) { options.expires = expires.toUTCString(); }
+	value = encodeURIComponent(value);
+	var updatedCookie = name + "=" + value;
+	for(var propName in options) {
+		updatedCookie += "; " + propName;
+		var propValue = options[propName];   
+		if (propValue !== true) { updatedCookie += "=" + propValue; }
+	}
+	document.cookie = updatedCookie;
+}
+
+
+// возвращает cookie с именем name, если есть, если нет, то undefined
+function getCookie(name) {
+	var matches = document.cookie.match(new RegExp("(?:^|; )" + name.replace(/([\.$?*|{}\(\)\[\]\\\/\+^])/g, '\\$1') + "=([^;]*)"));
+	return matches ? decodeURIComponent(matches[1]) : undefined;
+}
+
+
+function deleteCookie(name) {
+	setCookie(name, "", { expires: -1 })
+}

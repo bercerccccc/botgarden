@@ -1,0 +1,61 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap');
+
+:root {
+    /* === ЦВЕТА === */
+    --color-primary: #2C5F2D;
+    /* Тёмно-зелёный */
+    --color-primary-light: #A8DADC;
+    /* Светло-зелёный */
+    --color-secondary: #D4A574;
+    /* Золотисто-жёлтый */
+    --color-bg: #F8F6F1;
+    /* Светло-бежевый фон */
+    --color-bg-alt: #E8F5E9;
+    /* Светло-зелёный фон (альтернативный) */
+    --color-text: #2B2B2B;
+    /* Основной текст */
+    --color-text-muted: #5A5A5A;
+    /* Второстепенный текст */
+    --color-border: #E0E0E0;
+    /* Линии, разделители */
+    --color-white: #FFFFFF;
+
+    --font-heading: 'Playfair Display', serif;
+    --font-body: 'Inter', sans-serif;
+
+    --font-size-h1: clamp(2rem, 5vw, 3.5rem);
+    --font-size-h2: clamp(1.75rem, 4vw, 2.625rem);
+    --font-size-h3: clamp(1.5rem, 3vw, 2rem);
+    --font-size-base: clamp(1rem, 2vw, 1.125rem);
+    --font-size-small: clamp(0.875rem, 1.5vw, 1rem);
+
+    /* === МЕЖСТРОЧНЫЕ ИНТЕРВАЛЫ === */
+    --line-height-heading: 1.2;
+    --line-height-body: 1.8;
+
+    /* === ОТСТУПЫ (с clamp) === */
+    --space-section: clamp(4rem, 8vw, 7.5rem);
+    /* 64px-120px */
+    --space-block: clamp(2.5rem, 5vw, 3.75rem);
+    /* 40px-60px */
+    --space-element: clamp(1.25rem, 3vw, 1.875rem);
+    /* 20px-30px */
+    --space-small: clamp(0.5rem, 1vw, 1rem);
+    /* 8px-16px */
+
+    --container-max: 75rem;
+    --container-padding: clamp(1.25rem, 3vw, 2.5rem);
+
+    /* === РАДИУСЫ === */
+    --radius-small: 0.5rem;
+    /* 8px */
+    --radius-medium: 0.75rem;
+    /* 12px */
+    --radius-large: 1rem;
+    /* 16px */
+
+    --shadow-card: 0 0.25rem 0.75rem rgba(0, 0, 0, 0.08);
+    --shadow-hover: 0 0.375rem 1rem rgba(0, 0, 0, 0.12);
+
+    --transition-default: all 0.3s ease;
+}

@@ -1,0 +1,63 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: var(--font-body);
+    font-size: var(--font-size-base);
+    line-height: var(--line-height-body);
+    color: var(--color-text);
+    background-color: var(--color-bg);
+}
+
+.container {
+    max-width: var(--container-max);
+    margin: 0 auto;
+    padding: 0 var(--container-padding);
+}
+
+.section {
+    padding: var(--space-section) 0;
+    background-color: var(--color-bg-alt);
+}
+
+h1 {
+    font-family: var(--font-heading);
+    font-size: var(--font-size-h1);
+    line-height: var(--line-height-heading);
+    color: var(--color-primary);
+    margin-bottom: var(--space-element);
+}
+
+h2 {
+    font-family: var(--font-heading);
+    font-size: var(--font-size-h2);
+    line-height: var(--line-height-heading);
+    color: var(--color-primary);
+    margin-bottom: var(--space-element);
+}
+
+h3 {
+    font-family: var(--font-heading);
+    font-size: var(--font-size-h3);
+    line-height: var(--line-height-heading);
+    color: var(--color-text);
+    margin-bottom: var(--space-small);
+}
+
+p {
+    margin-bottom: var(--space-element);
+    color: var(--color-text);
+}
+
+.text-muted {
+    color: var(--color-text-muted);
+    font-size: var(--font-size-small);
+}
+
